@@ -27,8 +27,25 @@
 //     }
 // });
 
-document.querySelector('#case-plus').addEventListener('click', () => {
+// common function to update value of count
+function updateCaseNumber(isIncreasing) {
     const caseInput = document.querySelector('#case-count-phone');
     const caseNumber = caseInput.value;
-    caseInput.value = parseInt(caseNumber) + 1;
+    if (isIncreasing) {
+        caseInput.value = parseInt(caseNumber) + 1;
+    }
+    if (!isIncreasing) {
+        caseInput.value = parseInt(caseNumber) - 1;
+    }
+}
+
+// Plus button handler
+document.querySelector('#case-plus').addEventListener('click', () => {
+    updateCaseNumber(true);
+});
+
+// Minus button handler
+
+document.querySelector('#case-minus').addEventListener('click', () => {
+    updateCaseNumber(false);
 });
