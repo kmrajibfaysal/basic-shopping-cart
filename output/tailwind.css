@@ -468,37 +468,139 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
-.m-20 {
-  margin: 5rem;
+.container {
+  width: 100%;
 }
 
-.h-32 {
-  height: 8rem;
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
 }
 
-.w-32 {
-  width: 8rem;
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
 }
 
-.rounded {
-  border-radius: 0.25rem;
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
 }
 
-.border-2 {
-  border-width: 2px;
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
 }
 
-.bg-lime-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+body {
+  background: #fff;
+}
+
+.cart {
+  margin: 100px 0;
+  background-color: #f6f5fa;
+  padding: 60px 0;
+}
+
+.total-price {
+  padding-bottom: 15px;
+}
+
+.cart-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.center-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cart-item img {
+  width: 115px;
+}
+
+.cart-item h5 {
+  padding: 0 45px;
+}
+
+.cart-item .remove-item {
+  width: 25px !important;
+}
+
+.btn-default {
+  background-color: #fff;
+}
+
+.cart-item .form-control {
+  background-color: #f6f5fa;
+  border: none;
+  width: 65px;
+  border-radius: 10px !important;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.input-group {
+  width: unset;
+  flex-wrap: nowrap;
+}
+
+.status {
+  text-align: right;
+}
+
+.check-out {
+  float: right;
+  padding: 10px 30px;
+  font-size: 19px;
+  background-color: #2fbe70;
+  border: none;
 }
