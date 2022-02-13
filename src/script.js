@@ -1,50 +1,48 @@
-// common function to update value of count using button
-function updateProductNumber(product, isIncreasing, price) {
-    const productInput = document.querySelector(`#${product}-count`);
+function updateProductNumber(product, price, isIncreasing) {
+    const productInput = document.getElementById(`${product}-number`);
     let productNumber = productInput.value;
-    console.log(productNumber);
-    if (isIncreasing) {
+    if (isIncreasing == true) {
         productNumber = parseInt(productNumber) + 1;
-    }
-    if (!isIncreasing && productNumber > 1) {
+    } else if (productNumber > 0) {
         productNumber = parseInt(productNumber) - 1;
     }
     productInput.value = productNumber;
-    // update product total
-    const productTotal = document.querySelector(`#${product}-total`);
+    // update total
+    const productTotal = document.getElementById(`${product}-total`);
     productTotal.innerText = productNumber * price;
+    // calculate total
+    calculateTotal();
 }
 
+function getInputValue(product) {
+    const productInput = document.getElementById(`${product}-number`);
+    const productNumber = parseInt(productInput.value);
+    return productNumber;
+}
 
-// phone increase decrease event handler
-document.querySelector('#phone-plus').addEventListener('click', () => {
-    updateProductNumber('phone', true, 1219);
-});
+function calculateTotal() {
+    const phoneTotal = getInputValue('phone') * 1219;
+    const caseTotal = getInputValue('case') * 59;
+    const subTotal = phoneTotal + caseTotal;
+    const tax = subTotal / 10;
+    const totalPrice = subTotal + tax;
+    // update on the html
+    document.getElementById('sub-total').innerText = subTotal;
+    document.getElementById('tax-amount').innerText = tax;
+    document.getElementById('total-price').innerText = totalPrice;
+}
 
-document.querySelector('#phone-minus').addEventListener('click', () => {
-    updateProductNumber('phone', false, 1219);
+// phone increase decrease events
+document.getElementById('phone-plus').addEventListener('click', () => {
+    updateProductNumber('phone', 1219, true);
 });
-
-document.querySelector('#phone-count').addEventListener('keyup', () => {
-    const inputQ = document.querySelector('#phone-count');
-    const count = parseInt(inputQ.value);
-    if (count > 0) {
-        document.querySelector('#phone-total').innerText = count * 1219;
-    }
+document.getElementById('phone-minus').addEventListener('click', () => {
+    updateProductNumber('phone', 1219, false);
 });
-
-// case increase decrease event handler
-document.querySelector('#case-plus').addEventListener('click', () => {
-    updateProductNumber('case', true, 59);
+// handle case increase decrease events
+document.getElementById('case-plus').addEventListener('click', () => {
+    updateProductNumber('case', 59, true);
 });
-document.querySelector('#case-minus').addEventListener('click', () => {
-    updateProductNumber('case', false, 59);
-});
-
-document.querySelector('#case-count').addEventListener('keyup', () => {
-    const inputQ = document.querySelector('#case-count');
-    const count = parseInt(inputQ.value);
-    if (count > 0) {
-        document.querySelector('#case-total').innerText = count * 59;
-    }
+document.getElementById('case-minus').addEventListener('click', () => {
+    updateProductNumber('case', 59, false);
 });
